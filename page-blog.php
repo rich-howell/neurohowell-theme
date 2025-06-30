@@ -1,23 +1,27 @@
 <?php
 /**
- * Template Name: Blog.
+ * Template Name: Blog
  *
  * @package chriswiegman-theme
  */
 
 get_header();
 
-$cw_theme_args       = array(
+$no_theme_args       = array(
 	'posts_per_page' => -1,
+	'post_type'      => 'post',
+	'post_status'    => 'publish',
+
 );
-$cw_theme_blog_query = new WP_Query( $cw_theme_args );
+$no_theme_blog_query = new WP_Query( $no_theme_args );
+
 ?>
 <main>
 	<article class='h-entry page-index' itemscope='' itemtype='http://schema.org/BlogPosting'>
 		<div class="container">
 			<div class="content-header">
 				<h1 class="title post-title p-name" itemprop="name headline">All Posts</h1>
-				<p class="description"><?php printf( '<span class="post-count">%d</span> posts found.', intval( $cw_theme_blog_query->found_posts ) ); ?></p>
+				<p class="description"><?php printf( '<span class="post-count">%d</span> posts found.', intval( $no_theme_blog_query->found_posts ) ); ?></p>
 			</div>
 			<div class="content-search">
 				<form action="/" method="get">
@@ -30,58 +34,40 @@ $cw_theme_blog_query = new WP_Query( $cw_theme_args );
 				<div class="categories">
 					Filter Posts: <a href="/blog" class="category">All Posts</a>
 					<?php
-					$cw_theme_categories = get_categories(
+					$no_theme_categories = get_categories(
 						array(
 							'orderby' => 'name',
 							'order'   => 'ASC',
 						)
 					);
 
-					foreach ( $cw_theme_categories as $cw_theme_category ) {
-						printf( '<a href="%s" class="category">%s Posts</a>', esc_url( get_category_link( $cw_theme_category->term_id ) ), esc_html( $cw_theme_category->name ) );
+					foreach ( $no_theme_categories as $no_theme_category ) {
+						printf( '<a href="%s" class="category">%s Posts</a>', esc_url( get_category_link( $no_theme_category->term_id ) ), esc_html( $no_theme_category->name ) );
 					}
 					?>
 				</div>
 			</div>
 			<div class="content e-content" itemprop="articleBody">
 				<?php
-				if ( $cw_theme_blog_query->have_posts() ) {
-
-					echo '<!-- Group by year. -->';
-
-					$cw_theme_current_year = false;
+				if ( $no_theme_blog_query->have_posts() ) {
 
 					/* Start the Loop */
-					while ( $cw_theme_blog_query->have_posts() ) {
-						$cw_theme_blog_query->the_post();
+					while ( $no_theme_blog_query->have_posts() ) {
+						$no_theme_blog_query->the_post(); ?>
 
-						$cw_theme_post_year = get_the_date( 'Y' );
-
-						if ( $cw_theme_post_year !== $cw_theme_current_year ) {
-
-							if ( false !== $cw_theme_current_year ) {
-								echo '</div>';
-								echo '</div>';
-							}
-
-							echo '<div class="posts-group">';
-							printf( '<h2 class="main-header">%s</h2>', intval( $cw_theme_post_year ) );
-							echo '<div class="posts">';
-
-						}
-
-						$cw_theme_current_year = $cw_theme_post_year;
-						?>
-						<a class="post" href="<?php the_permalink(); ?>">
-							<?php the_title( '<h3 class="post-title">', '</h3>' ); ?>
-							<span class="post-day"><?php the_date( 'M j' ); ?></span>
-						</a>
+												
+								<div class="posts">						
+									<a class="post" href="<?php the_permalink(); ?>">
+										<?php the_title( '<h3 class="post-title">', '</h3>' ); ?>
+										<span class="post-day"><?php the_date( 'M j' ); ?></span>
+										</a>
 						<?php
-					}
-				}
+					}	
+				}			
 				?>
+								</div>
+							
 			</div>
-		</div>
 	</article>
 
 </main>

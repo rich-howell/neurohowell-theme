@@ -5,13 +5,13 @@
  * @package chriswiegman-theme
  */
 
-namespace CW\Theme;
+namespace NO\Theme;
 
 // Useful global constants.
 use WP_POST;
 use WP_Query;
 
-define( 'CW_THEME_VERSION', '12.10.1' );
+define( 'NO_THEME_VERSION', '01.00.0' );
 
 /**
  * Setup theme hooks.
@@ -20,24 +20,23 @@ define( 'CW_THEME_VERSION', '12.10.1' );
  */
 function init() {
 	// Add new actions and filters.
-	add_action( 'after_setup_theme', 'CW\Theme\action_after_setup_theme' );
-	add_action( 'wp_enqueue_scripts', 'CW\Theme\action_wp_enqueue_scripts' );
+	add_action( 'after_setup_theme', 'NO\Theme\action_after_setup_theme' );
+	add_action( 'wp_enqueue_scripts', 'NO\Theme\action_wp_enqueue_scripts' );
 	add_filter( 'feed_links_show_comments_feed', '__return_false' );
-	add_filter( 'wp_resource_hints', 'CW\Theme\filter_wp_resource_hints', 10, 2 );
-	add_action( 'admin_menu', 'CW\Theme\action_admin_menu' );
-	add_action( 'init', 'CW\Theme\action_init', 100 );
-	add_action( 'wp_before_admin_bar_render', 'CW\Theme\action_wp_before_admin_bar_render' );
-	add_action( 'send_headers', 'CW\Theme\action_send_headers' );
-	add_action( 'pre_get_posts', 'CW\Theme\action_pre_get_posts' );
-	add_action( 'admin_init', 'CW\Theme\action_admin_init' );
-	add_action( 'save_post', 'CW\Theme\action_save_post', 10, 3 );
+	add_filter( 'wp_resource_hints', 'NO\Theme\filter_wp_resource_hints', 10, 2 );
+	add_action( 'admin_menu', 'NO\Theme\action_admin_menu' );
+	add_action( 'init', 'NO\Theme\action_init', 100 );
+	add_action( 'wp_before_admin_bar_render', 'NO\Theme\action_wp_before_admin_bar_render' );
+	add_action( 'send_headers', 'NO\Theme\action_send_headers' );
+	add_action( 'pre_get_posts', 'NO\Theme\action_pre_get_posts' );
+	add_action( 'admin_init', 'NO\Theme\action_admin_init' );
+	add_action( 'save_post', 'NO\Theme\action_save_post', 10, 3 );
 	add_filter( 'xmlrpc_enabled', '__return_false' );
 	add_filter( 'big_image_size_threshold', '__return_false' );
-	add_filter( 'intermediate_image_sizes_advanced', 'CW\Theme\filter_intermediate_image_sizes_advanced', 10, 3 );
+	add_filter( 'intermediate_image_sizes_advanced', 'NO\Theme\filter_intermediate_image_sizes_advanced', 10, 3 );
 	add_filter( 'wpseo_next_rel_link', '__return_false' );
 	add_filter( 'wpseo_prev_rel_link', '__return_false' );
 	add_filter( 'wpseo_debug_markers', '__return_false' );
-	add_action( 'widgets_init', 'CW\Theme\action_widgets_init' );
 	add_filter( 'wpseo_json_ld_output', '__return_false' );
 	add_filter( 'syntax_highlighting_code_block_styling', '__return_false' );
 
@@ -63,32 +62,6 @@ function init() {
 		remove_action( 'wp_head', 'wp_shortlink_wp_head' );
 		remove_action( 'template_redirect', 'wp_shortlink_header', 11 );
 	}
-
-	// Require additional functionality.
-	require __DIR__ . '/includes/post_columns/event.php';
-	require __DIR__ . '/includes/post_columns/location.php';
-	require __DIR__ . '/includes/post_columns/talk.php';
-}
-
-/**
- * Action widgets_init
- *
- * Register widget area.
- *
- * @since 12.7.0
- */
-function action_widgets_init() {
-	register_sidebar(
-		array(
-			'name'          => 'Intro',
-			'id'            => 'intro',
-			'description'   => 'The intro area at the top of the home page.',
-			'before_widget' => '<div class="container">',
-			'after_widget'  => '</div>',
-			'before_title'  => '<h2 class="widget-title">',
-			'after_title'   => '</h2>',
-		)
-	);
 }
 
 /**
@@ -294,7 +267,7 @@ function action_after_setup_theme() {
  */
 function action_wp_enqueue_scripts() {
 	$min     = '.min';
-	$version = CW_THEME_VERSION;
+	$version = NO_THEME_VERSION;
 
 	if ( defined( 'SCRIPT_DEBUG' ) && true === SCRIPT_DEBUG ) {
 		$min     = '';
@@ -305,7 +278,7 @@ function action_wp_enqueue_scripts() {
 	wp_dequeue_style( 'wp-block-library' );
 	wp_dequeue_style( 'global-styles' );
 	wp_dequeue_style( 'classic-theme-styles' );
-	wp_enqueue_style( 'cw-theme-style', get_template_directory_uri() . '/assets/main' . $min . '.css', array(), $version );
+	wp_enqueue_style( 'cw-theme-style', get_template_directory_uri() . '/assets/main.css', array(), $version );
 }
 
 init();
