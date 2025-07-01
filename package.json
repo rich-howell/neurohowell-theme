@@ -1,0 +1,15 @@
+{
+  "name": "neurohowell",
+  "version": "1.0.0",
+  "description": "Custom WordPress theme built with modern development tools and structure.",
+  "author": "rich-howell",
+  "license": "MIT",
+  "scripts": {
+    "build": "powershell -ExecutionPolicy Bypass -File build/build-theme.ps1"
+  },
+  "devDependencies": {},
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "private": true
+}

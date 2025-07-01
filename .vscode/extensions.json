@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "wordpresstoolbox.wordpress-toolbox",
+    "shevaua.phpcs",
+	"esbenp.prettier-vscode",
+	"dbaeumer.vscode-eslint",
+	"editorconfig.editorconfig"
+  ],
+  "unwantedRecommendations": [
+    
+  ]
+}
