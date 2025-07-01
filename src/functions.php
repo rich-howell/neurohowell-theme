@@ -2,7 +2,7 @@
 /**
  * Functions and filters for theme additions.
  *
- * @package chriswiegman-theme
+ * @package neurohowell-theme
  */
 
 namespace NO\Theme;
