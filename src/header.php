@@ -2,7 +2,7 @@
 /**
  * The header template.
  *
- * @package chriswiegman-theme
+ * @package neurohowell-theme
  */
 
 ?>

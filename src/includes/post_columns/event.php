@@ -2,7 +2,7 @@
 /**
  * Modifies the admin columns for the event post type.
  *
- * @package chriswiegman-theme
+ * @package neurohowell-theme
  */
 
 namespace CW\Theme\Post_Columns\Event;

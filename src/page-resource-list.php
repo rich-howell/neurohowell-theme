@@ -2,7 +2,7 @@
 /**
  * Template Name: Resource Directory
  *
- * @package chriswiegman-theme
+ * @package neurohowell-theme
  */
 
 get_header();
@@ -37,7 +37,8 @@ $cw_theme_blog_query = new WP_Query( $cw_theme_args );
 
 					/* Start the Loop */
 					while ( $cw_theme_blog_query->have_posts() ) {
-						$cw_theme_blog_query->the_post(); ?>
+						$cw_theme_blog_query->the_post();
+						?>
 							
 								<?php get_template_part( 'partials/resource-content', get_post_format() ); ?>
 						<?php

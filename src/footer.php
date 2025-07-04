@@ -2,7 +2,7 @@
 /**
  * The template for the common footer on every page.
  *
- * @package chriswiegman-theme
+ * @package neurohowell-theme
  */
 
 ?>

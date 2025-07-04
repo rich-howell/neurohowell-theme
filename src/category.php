@@ -2,7 +2,7 @@
 /**
  * Templates for the blog page.
  *
- * @package chriswiegman-theme
+ * @package neurohowell-theme
  */
 
 get_header();

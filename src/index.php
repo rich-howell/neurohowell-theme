@@ -2,7 +2,7 @@
 /**
  * Templates for the archive and other pages.
  *
- * @package chriswiegman-theme
+ * @package neurohowell-theme
  */
 
 get_header();

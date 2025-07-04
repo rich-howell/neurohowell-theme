@@ -178,7 +178,7 @@ main article .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid #925d46;
 }
 main .prevnext .main-header a,
 main article .main-header a {
@@ -424,7 +424,7 @@ footer .content .copyright {
 .single main article .content-categories .tags a:hover,
 .single main article .content-header .categories a:hover,
 .single main article .content-header .tags a:hover {
-    background: #111;
+    background: #c2c2c2;
     border-color: #312944;
     color: #312944;
 }
@@ -565,7 +565,7 @@ footer .content .copyright {
 }
 .page-index .content-search form input[type="submit"]:hover {
     cursor: pointer;
-    background: #111;
+    background: #c2c2c2;
     border-color: #312944;
     color: #312944;
 }

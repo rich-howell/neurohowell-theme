@@ -2,7 +2,7 @@
 /**
  * Templates for individual posts and pages.
  *
- * @package chriswiegman-theme
+ * @package neurohowell-theme
  */
 
 add_filter( 'syntax_highlighting_code_block_styling', '__return_true' );

@@ -2,12 +2,12 @@
 /**
  * Template Name: Blog
  *
- * @package chriswiegman-theme
+ * @package neurohowell-theme
  */
 
 get_header();
 
-$no_theme_args       = array(
+$no_theme_args = array(
 	'posts_per_page' => -1,
 	'post_type'      => 'post',
 	'post_status'    => 'publish',
@@ -53,7 +53,8 @@ $no_theme_blog_query = new WP_Query( $no_theme_args );
 
 					/* Start the Loop */
 					while ( $no_theme_blog_query->have_posts() ) {
-						$no_theme_blog_query->the_post(); ?>
+						$no_theme_blog_query->the_post();
+						?>
 
 												
 								<div class="posts">						
@@ -62,8 +63,8 @@ $no_theme_blog_query = new WP_Query( $no_theme_args );
 										<span class="post-day"><?php the_date( 'M j' ); ?></span>
 										</a>
 						<?php
-					}	
-				}			
+					}
+				}
 				?>
 								</div>
 							

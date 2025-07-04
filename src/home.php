@@ -2,7 +2,7 @@
 /**
  * The main template file
  *
- * @package chriswiegman-theme
+ * @package neurohowell-theme
  */
 
 get_header();
@@ -13,10 +13,10 @@ get_header();
 		<div class="widget_text container">
 			<div class="textwidget custom-html-widget"><div class="content">
 				<div class="intro">
-					<h1><?php echo esc_attr( get_field('hero_bio_title', 'option') ); ?></h1> 
-					<?php echo esc_html( get_field('hero_bio', 'option') ); ?>
+					<h1><?php echo esc_attr( get_field( 'hero_bio_title', 'option' ) ); ?></h1> 
+					<?php echo esc_html( get_field( 'hero_bio', 'option' ) ); ?>
 					</div>
-					<img src="<?php echo esc_url( get_field('hero_bio_image', 'option') ); ?>" />
+					<img src="<?php echo esc_url( get_field( 'hero_bio_image', 'option' ) ); ?>" />
 				</div>
 			</div>
 		</div>	
@@ -45,8 +45,8 @@ get_header();
 			<div class="content e-content" itemprop="articleBody">
 				<div class="card-grid">
 				<?php
-					
-					$args       = array(
+
+					$args = array(
 						'post_status'    => 'publish',
 						'post_type'      => 'resource',
 						'posts_per_page' => 4,
