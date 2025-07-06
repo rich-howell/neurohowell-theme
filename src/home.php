@@ -31,19 +31,14 @@ get_header();
 					?>
 					<a class="post" href="<?php the_permalink(); ?>">
 						<?php the_title( '<h3 class="post-title">', '</h3>' ); ?>
-						<span class="post-day"><?php the_date( 'M j' ); ?></span>
+						<span class="post-day"><?php echo get_the_date( 'M j' ); ?></span>
 					</a>
 					<?php
 				}
 			} wp_reset_postdata();
 			?>
 
-
-			<div class="content-header" style="margin-top: 10px;">
-				<h2 class="main-header"><span>Resources</span> <a href="/resources">View All</a></h2>			
-			</div>
-			<div class="content e-content" itemprop="articleBody">
-				<div class="card-grid">
+			
 				<?php
 
 					$args = array(
@@ -59,6 +54,11 @@ get_header();
 
 					if ( $total_posts > 0 ) {
 						?>
+						<div class="content-header" style="margin-top: 10px;">
+				<h2 class="main-header"><span>Resources</span> <a href="/resources">View All</a></h2>			
+			</div>
+			<div class="content e-content" itemprop="articleBody">
+				<div class="card-grid">
 						<?php
 						if ( $the_posts->have_posts() ) :
 							while ( $the_posts->have_posts() ) :
