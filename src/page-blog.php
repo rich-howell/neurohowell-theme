@@ -60,7 +60,7 @@ $no_theme_blog_query = new WP_Query( $no_theme_args );
 								<div class="posts">						
 									<a class="post" href="<?php the_permalink(); ?>">
 										<?php the_title( '<h3 class="post-title">', '</h3>' ); ?>
-										<span class="post-day"><?php the_date( 'M j' ); ?></span>
+										<span class="post-day"><?php echo get_the_date( 'M j' ); ?></span>
 										</a>
 						<?php
 					}
